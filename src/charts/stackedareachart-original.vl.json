@@ -1,0 +1,122 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Popular Girls' names in the UK",
+        "fontSize": 16,
+        "fontWeight": "bold"
+    },
+    "width": 400,
+    "height": 400,
+    "data": {
+        "values": [
+            {
+                "Year": 2009,
+                "Amelia": 3625,
+                "Isla": 1908,
+                "Olivia": 5201
+            },
+            {
+                "Year": 2010,
+                "Amelia": 4227,
+                "Isla": 2384,
+                "Olivia": 5279
+            },
+            {
+                "Year": 2011,
+                "Amelia": 5054,
+                "Isla": 2849,
+                "Olivia": 4938
+            },
+            {
+                "Year": 2012,
+                "Amelia": 7061,
+                "Isla": 3501,
+                "Olivia": 4585
+            },
+            {
+                "Year": 2013,
+                "Amelia": 5570,
+                "Isla": 3526,
+                "Olivia": 4598
+            },
+            {
+                "Year": 2014,
+                "Amelia": 5327,
+                "Isla": 4012,
+                "Olivia": 4724
+            }
+        ]
+    },
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "quantitative",
+            "axis": {
+                "title": "Year",
+                "titleFontWeight": "bold",
+                "grid": true
+            }
+        },
+        "y": {
+            "field": "value",
+            "type": "quantitative",
+            "axis": {
+                "title": "Number of Girls",
+                "titleFontWeight": "bold",
+                "grid": true
+            }
+        },
+        "color": {
+            "field": "name",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Amelia",
+                    "Isla",
+                    "Olivia"
+                ],
+                "range": [
+                    "#3182bd",
+                    "#9ecae1",
+                    "#deebf7"
+                ]
+            },
+            "legend": {
+                "title": null,
+                "orient": "right"
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "area",
+                "opacity": 0.7
+            },
+            "transform": [
+                {
+                    "fold": [
+                        "Amelia",
+                        "Isla",
+                        "Olivia"
+                    ],
+                    "as": [
+                        "name",
+                        "value"
+                    ]
+                }
+            ]
+        }
+    ],
+    "config": {
+        "axis": {
+            "gridColor": "#ddd",
+            "gridOpacity": 0.5,
+            "labelFontSize": 11,
+            "titleFontSize": 12
+        },
+        "view": {
+            "stroke": null
+        }
+    }
+}

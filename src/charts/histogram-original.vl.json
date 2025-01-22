@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Trip Distance and Customers",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "data/histogram.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "fill": "#3182bd",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Trip_Distance",
+      "type": "quantitative",
+      "bin": {
+        "step": 10
+      },
+      "axis": {
+        "title": "Distance (in Km)",
+        "titleFontWeight": "bold",
+        "grid": false
+      }
+    },
+    "y": {
+      "aggregate": "count",
+      "axis": {
+        "title": "Number of Customers",
+        "titleFontWeight": "bold",
+        "grid": true
+      }
+    }
+  },
+  "config": {
+    "axis": {
+      "grid": true,
+      "gridColor": "#ddd",
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    },
+    "bar": {
+      "binSpacing": 1
+    }
+  }
+}

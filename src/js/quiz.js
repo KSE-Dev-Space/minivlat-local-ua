@@ -1,0 +1,199 @@
+// This file manages the quiz functionality, including loading questions from the JSON file, displaying them to the user, and collecting answers.
+
+document.addEventListener('DOMContentLoaded', function () {
+    const quizContainer = document.getElementById('quiz');
+    const resultsContainer = document.getElementById('results');
+    const timerDisplay = document.getElementById('time');
+    const version = localStorage.getItem('quizVersion');
+    const quizId = 'quiz';
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let quizResults = [];
+    let timeLeft = 25;
+    let timer;
+    let startTime = new Date().toISOString();
+
+    // Generate and store browser ID
+    function generateBrowserId() {
+        return 'xxxx-xxxx-4xxx-yxxx-xxxx-xxxx-xxxx-xxxx'.replace(/[xy]/g, function(c) {
+            const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    const browserId = localStorage.getItem('browserId') || generateBrowserId();
+    localStorage.setItem('browserId', browserId);
+
+    const browserInfo = {
+        userAgent: navigator.userAgent,
+        screenResolution: `${window.screen.width}x${window.screen.height}`,
+        operatingSystem: navigator.platform
+    };
+
+    // Check if there is a completed quiz
+    const allQuizzes = JSON.parse(localStorage.getItem('allQuizzes') || '{}');
+    if (allQuizzes[quizId] && allQuizzes[quizId].completed) {
+        alert("You have already completed the quiz. Redirecting to the questionnaire.");
+        window.location.href = 'index.html';
+        return;
+    }
+
+    fetch('data/questions.json')
+        .then(response => response.json())
+        .then(data => {
+            if (!data.quizzes || !data.quizzes[version] || !data.quizzes[version].questions) {
+                throw new Error('Invalid quiz data or version');
+            }
+            questions = data.quizzes[version].questions;
+            displayQuestion();
+        })
+        .catch(error => {
+            console.error('Error loading quiz:', error);
+            quizContainer.innerHTML = '<p>Error loading quiz. Please try again later.</p>';
+        });
+
+    function displayQuestion() {
+        if (!questions || currentQuestionIndex >= questions.length) {
+            showResults();
+            return;
+        }
+
+        // Complete timer reset
+        stopTimer();
+        timeLeft = 25;
+        timerDisplay.textContent = timeLeft;
+
+        const question = questions[currentQuestionIndex];
+        const chartFile = `charts/${question.chart}-${version}.vl.json`;
+
+        // Embed the Vega-Lite chart
+        const embedOptions = {
+            actions: false, // Disable kebab menu
+            tooltip: false  // Disable tooltips
+        };
+
+        if (version === 'ukrainian') {
+            embedOptions.timeFormatLocale = {
+            dateTime: "%A, %e %B %Y р. %X",
+            date: "%d.%m.%Y",
+            time: "%H:%M:%S",
+            periods: ["", ""],
+            days: ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"],
+            shortDays: ["нд", "пн", "вт", "ср", "чт", "пт", "сб"],
+            months: ["січень", "лютий", "березень", "квітень", "травень", "червень", "липень", "серпень", "вересень", "жовтень", "листопад", "грудень"],
+            shortMonths: ["січ", "лют", "бер", "кві", "тра", "чер", "лип", "сер", "вер", "жов", "лис", "гру"]
+            };
+        }
+
+        vegaEmbed('#chart', chartFile, embedOptions).catch(console.error);
+
+        // Update question and options
+        document.getElementById('question-text').innerHTML = question.question;
+        document.getElementById('options').innerHTML = question.options.map((option, index) => `
+            <button class="option-button" data-value="${option}">${option}</button>
+        `).join('');
+
+        // Start fresh timer
+        startTimer();
+
+        // Add event listeners to option buttons
+        document.querySelectorAll('.option-button').forEach(button => {
+            button.addEventListener('click', () => submitAnswer(button.dataset.value));
+        });
+    }
+
+    function stopTimer() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    function startTimer() {
+        // Clear any existing timer
+        stopTimer();
+
+        // Ensure display shows starting value
+        timerDisplay.textContent = timeLeft;
+
+        timer = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                stopTimer();
+                alert("Time's up! Moving to the next question.");
+                submitAnswer(true);
+            }
+        }, 1000);
+    }
+
+    function storeQuizProgress() {
+        const currentProgress = {
+            quizId: quizId,
+            version: version,
+            score: score,
+            currentQuestionIndex: currentQuestionIndex,
+            totalQuestions: questions.length,
+            answers: quizResults,
+            lastUpdated: new Date().toISOString(),
+            participantData: JSON.parse(localStorage.getItem('participantData') || '{}'),
+            startTime: startTime, // Store start time
+            browserId: browserId, // Store browser ID
+            browserInfo: browserInfo // Store browser info
+        };
+        const allQuizzes = JSON.parse(localStorage.getItem('allQuizzes') || '{}');
+        allQuizzes[quizId] = currentProgress;
+        localStorage.setItem('allQuizzes', JSON.stringify(allQuizzes));
+    }
+
+    function submitAnswer(selectedAnswer = null) {
+        // Stop the timer first
+        stopTimer();
+
+        if (!selectedAnswer) {
+            alert('Please select an answer before proceeding.');
+            startTimer(); // Restart timer if no answer selected
+            return;
+        }
+
+        const currentQuestion = questions[currentQuestionIndex];
+        const isCorrect = selectedAnswer === currentQuestion.answer;
+        if (isCorrect) {
+            score++;
+        }
+
+        // Store the question result
+        quizResults.push({
+            question: currentQuestion.question,
+            selectedAnswer: selectedAnswer,
+            correctAnswer: currentQuestion.answer,
+            isCorrect: isCorrect,
+            questionIndex: currentQuestionIndex,
+            timestamp: new Date().toISOString(),
+            timeSpent: 25 - timeLeft,
+            chartType: currentQuestion.chart,
+            chartTypeUk: currentQuestion.chart_uk // Include chart_uk type
+        });
+
+        // Store progress after each answer
+        storeQuizProgress();
+
+        currentQuestionIndex++;
+        // Reset timer state before showing next question
+        timeLeft = 25;
+        displayQuestion();
+    }
+
+    function showResults() {
+        // Mark quiz as completed
+        const allQuizzes = JSON.parse(localStorage.getItem('allQuizzes') || '{}');
+        allQuizzes[quizId].completed = true;
+        allQuizzes[quizId].completedAt = new Date().toISOString();
+        localStorage.setItem('allQuizzes', JSON.stringify(allQuizzes));
+
+        // Redirect to the questionnaire page
+        window.location.href = 'questionnaire.html';
+    }
+});

@@ -1,0 +1,308 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "height": 300,
+  "width": 600,
+  "title": "Кількість шлюбів в першому півріччі 2024 р.",
+  "config": {
+    "padding": 0,
+    "legend": {
+      "orient": "top",
+      "padding": 20,
+      "gradientLength": 300,
+      "titleFontWeight": "normal",
+      "titleAlign": "center",
+      "titleAnchor": "middle",
+      "titleLimit": 1000
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/org-scn-design-studio-community/sdkcommunitymaps/master/geojson/Europe/Ukraine-regions.json",
+        "format": {
+          "feature": "UKR_adm1",
+          "type": "topojson"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeOpacity": 0.3,
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "legend": {
+            "title": null
+          },
+          "scale": {
+            "scheme": "blues",
+            "reverse": false
+          },
+          "type": "quantitative"
+        }
+      },
+      "projection": {
+        "type": "mercator"
+      },
+      "transform": [
+        {
+          "lookup": "properties.ID_1",
+          "from": {
+            "data": {
+              "name": "referendum"
+            },
+            "key": "id",
+            "fields": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "name": "referendum"
+      },
+      "mark": {
+        "type": "text",
+        "color": "#111"
+      },
+      "encoding": {
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "short_region",
+          "type": "ordinal"
+        }
+      }
+    }
+  ],
+  "datasets": {
+    "referendum": [
+      {
+        "region": "Львівська область",
+        "short_region": "Льв",
+        "id": 3150,
+        "value": 4616,
+        "lat": 49.8397,
+        "lon": 24.0297
+      },
+      {
+        "region": "Івано-Франківська область",
+        "short_region": "ІвФ",
+        "id": 3142,
+        "value": 2333,
+        "lat": 48.7226,
+        "lon": 24.7105
+      },
+      {
+        "region": "Тернопільська область",
+        "short_region": "Тер",
+        "id": 3157,
+        "value": "1512",
+        "lat": 49.3535,
+        "lon": 25.5948
+      },
+      {
+        "region": "м.Київ",
+        "short_region": "м.К",
+        "id": 3147,
+        "value": 9392,
+        "lat": 50.4501,
+        "lon": 30.5234
+      },
+      {
+        "region": "Волинська область",
+        "short_region": "Вол",
+        "id": 3160,
+        "value": 1791,
+        "lat": 51.3424,
+        "lon": 25
+      },
+      {
+        "region": "Рівненська область",
+        "short_region": "Рів",
+        "id": 3154,
+        "value": 2682,
+        "lat": 51,
+        "lon": 26.8
+      },
+      {
+        "region": "Закарпатська область",
+        "short_region": "Зак",
+        "id": 3158,
+        "value": 1859,
+        "lat": 48.4,
+        "lon": 23
+      },
+      {
+        "region": "Чернівецька область",
+        "short_region": "Чнц",
+        "id": 3138,
+        "value": 1376,
+        "lat": 48.2915,
+        "lon": 25.9403
+      },
+      {
+        "region": "Київська область",
+        "short_region": "К.о",
+        "id": 3146,
+        "value": 4848,
+        "lat": 49.92,
+        "lon": 30.57
+      },
+      {
+        "region": "Харківська область",
+        "short_region": "Хар",
+        "id": 3143,
+        "value": 4148,
+        "lat": 49.5935,
+        "lon": 36.5304
+      },
+      {
+        "region": "Черкаська область",
+        "short_region": "Чрк",
+        "id": 3136,
+        "value": 3001,
+        "lat": 49.2,
+        "lon": 31.4
+      },
+      {
+        "region": "Дніпропетровська область",
+        "short_region": "Дні",
+        "id": 3140,
+        "value": 7076,
+        "lat": 48.4647,
+        "lon": 35.0462
+      },
+      {
+        "region": "Сумська область",
+        "short_region": "Сум",
+        "id": 3156,
+        "value": 1670,
+        "lat": 50.8077,
+        "lon": 34.4981
+      },
+      {
+        "region": "Полтавська область",
+        "short_region": "Пол",
+        "id": 3153,
+        "value": 3065,
+        "lat": 49.5883,
+        "lon": 34.0514
+      },
+      {
+        "region": "Запорізька область",
+        "short_region": "Зап",
+        "id": 3161,
+        "value": 2205,
+        "lat": 47.1388,
+        "lon": 35.5396
+      },
+      {
+        "region": "Херсонська область",
+        "short_region": "Хер",
+        "id": 3144,
+        "value": 323,
+        "lat": 46.6354,
+        "lon": 33.5169
+      },
+      {
+        "region": "Вінницька область",
+        "short_region": "Він",
+        "id": 3159,
+        "value": 3362,
+        "lat": 49.0331,
+        "lon": 28.6682
+      },
+      {
+        "region": "Житомирська область",
+        "short_region": "Жит",
+        "id": 3162,
+        "value": 2717,
+        "lat": 50.2649,
+        "lon": 28.6767
+      },
+      {
+        "region": "Хмельницька область",
+        "short_region": "Хме",
+        "id": 3145,
+        "value": 2925,
+        "lat": 49.4228,
+        "lon": 26.9871
+      },
+      {
+        "region": "Одеська область",
+        "short_region": "Оде",
+        "id": 3152,
+        "value": 4896,
+        "lat": 46.9825,
+        "lon": 30.3233
+      },
+      {
+        "region": "Кіровоградська область",
+        "short_region": "Кір",
+        "id": 3148,
+        "value": 1801,
+        "lat": 48.5079,
+        "lon": 32.2623
+      },
+      {
+        "region": "м.Севастополь",
+        "short_region": "Сев",
+        "id": 3155,
+        "value": 0,
+        "lat": 44.58,
+        "lon": 33.58
+      },
+      {
+        "region": "Чернігівська область",
+        "short_region": "Чнг",
+        "id": 3137,
+        "value": 1776,
+        "lat": 51.2982,
+        "lon": 31.8893
+      },
+      {
+        "region": "Донецька область",
+        "short_region": "Дон",
+        "id": 3141,
+        "value": 933,
+        "lat": 48.0159,
+        "lon": 37.8028
+      },
+      {
+        "region": "Миколаївська область",
+        "short_region": "Мик",
+        "id": 3151,
+        "value": 2459,
+        "lat": 47.275,
+        "lon": 31.9946
+      },
+      {
+        "region": "Луганська область",
+        "short_region": "Луг",
+        "id": 3149,
+        "value": 0,
+        "lat": 48.974,
+        "lon": 39.0078
+      },
+      {
+        "region": "Автономна Республіка Крим",
+        "short_region": "АРК",
+        "id": 3139,
+        "value": 0,
+        "lat": 45.3657,
+        "lon": 34.4708
+      }
+    ]
+  }
+}

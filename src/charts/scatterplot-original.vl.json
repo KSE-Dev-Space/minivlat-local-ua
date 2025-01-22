@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Weight and Height of 85 Individuals",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "data/scatterplot.csv"
+  },
+  "mark": {
+    "type": "circle",
+    "size": 40,
+    "fill": "#3182bd",
+    "opacity": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "Height",
+      "type": "quantitative",
+      "scale": {
+        "domain": [155, 190]
+      },
+      "axis": {
+        "title": "Height (cm)",
+        "titleFontWeight": "bold",
+        "grid": true,
+        "gridDash": [1, 1],
+        "ticks": 5
+      }
+    },
+    "y": {
+      "field": "Weight",
+      "type": "quantitative",
+      "scale": {
+        "domain": [40, 75]
+      },
+      "axis": {
+        "title": "Weight (kg)",
+        "titleFontWeight": "bold",
+        "grid": true,
+        "gridDash": [1, 1],
+        "ticks": 8
+      }
+    },
+    "tooltip": [
+      {"field": "Height", "title": "Height", "format": ".1f"},
+      {"field": "Weight", "title": "Weight", "format": ".1f"}
+    ]
+  },
+  "config": {
+    "axis": {
+      "gridColor": "#ddd",
+      "gridOpacity": 0.5,
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

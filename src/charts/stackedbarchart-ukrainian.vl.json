@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Ціни на обслуговування в номері"
+  },
+  "data": {
+    "url": "data/stackedbarchart.csv"
+  },
+  "width": 500,
+  "height": 300,
+  "encoding": {
+    "x": {
+      "field": "CityUK",
+      "type": "nominal",
+      "axis": {
+        "title": "Місто",
+        "labelAngle": 40,
+        "titleFontWeight": "bold"
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "Ціна ($)",
+        "titleFontWeight": "bold",
+        "grid": true
+      },
+      "scale": {
+        "domain": [
+          0,
+          70
+        ]
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Sandwich",
+          "Water",
+          "Peanut",
+          "Soda",
+          "Vodka"
+        ],
+        "range": [
+          "#7fc97f",
+          "#beaed4",
+          "#fdc086",
+          "#fb9a99",
+          "#386cb0"
+        ]
+      },
+      "legend": {
+        "title": null,
+        "orient": "right",
+        "labelExpr": "datum.label == 'Sandwich' ? 'Сендвіч' : datum.label == 'Water' ? 'Вода' : datum.label == 'Peanut' ? 'Арахіс' : datum.label == 'Soda' ? 'Газована вода' : 'Горілка'"
+      }
+    }
+  },
+  "mark": "bar",
+  "transform": [
+    {
+      "fold": [
+        "Sandwich",
+        "Water",
+        "Peanut",
+        "Soda",
+        "Vodka"
+      ],
+      "as": [
+        "category",
+        "value"
+      ]
+    }
+  ],
+  "config": {
+    "axis": {
+      "grid": true,
+      "gridColor": "#ddd"
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

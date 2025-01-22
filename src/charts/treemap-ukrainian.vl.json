@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 500,
+  "height": 500,
+  "marks": [
+    {
+      "type": "image",
+      "encode": {
+        "enter": {
+          "url": {
+            "value": "data/treemap-uk.png"
+          },
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "value": 0
+          },
+          "width": {
+            "value": 500
+          },
+          "height": {
+            "value": 500
+          },
+          "aspect": {
+            "value": true
+          },
+          "align": {
+            "value": "left"
+          },
+          "baseline": {
+            "value": "top"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Olympic Medal Distribution by Country",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "url": "data/stacked100.csv"
+  },
+  "width": 500,
+  "height": 300,
+  "encoding": {
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "Percentage",
+        "format": ".0%",
+        "grid": true
+      },
+      "stack": "normalize"
+    },
+    "x": {
+      "field": "Countries",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelAngle": 40,
+        "titleFontWeight": "bold"
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Gold",
+          "Silver",
+          "Bronze"
+        ],
+        "range": [
+          "#FFD700",
+          "#C0C0C0",
+          "#CD7F32"
+        ]
+      },
+      "legend": {
+        "title": "Medals",
+        "orient": "right"
+      }
+    }
+  },
+  "mark": "bar",
+  "transform": [
+    {
+      "fold": [
+        "Gold",
+        "Silver",
+        "Bronze"
+      ],
+      "as": [
+        "category",
+        "value"
+      ]
+    },
+    {
+      "sort": [
+        {"field": "category", "order": "descending"}
+      ]
+    }
+  ],
+  "config": {
+    "axis": {
+      "grid": true,
+      "gridColor": "#ddd"
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

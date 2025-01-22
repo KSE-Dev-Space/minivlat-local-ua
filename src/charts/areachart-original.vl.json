@@ -1,0 +1,160 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Robusta Coffee Price",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "width": 500,
+  "height": 300,
+  "data": {
+    "values": [
+      {
+        "month": "2018-01",
+        "price": 0.8865
+      },
+      {
+        "month": "2018-02",
+        "price": 0.8924
+      },
+      {
+        "month": "2018-03",
+        "price": 0.8818
+      },
+      {
+        "month": "2018-04",
+        "price": 0.8831
+      },
+      {
+        "month": "2018-05",
+        "price": 0.8874
+      },
+      {
+        "month": "2018-06",
+        "price": 0.8607
+      },
+      {
+        "month": "2018-07",
+        "price": 0.8442
+      },
+      {
+        "month": "2018-08",
+        "price": 0.8074
+      },
+      {
+        "month": "2018-09",
+        "price": 0.7670
+      },
+      {
+        "month": "2018-10",
+        "price": 0.8532
+      },
+      {
+        "month": "2018-11",
+        "price": 0.8352
+      },
+      {
+        "month": "2018-12",
+        "price": 0.7757
+      },
+      {
+        "month": "2019-01",
+        "price": 0.7824
+      },
+      {
+        "month": "2019-02",
+        "price": 0.7865
+      },
+      {
+        "month": "2019-03",
+        "price": 0.7696
+      },
+      {
+        "month": "2019-04",
+        "price": 0.7328
+      },
+      {
+        "month": "2019-05",
+        "price": 0.7112
+      },
+      {
+        "month": "2019-06",
+        "price": 0.7402
+      },
+      {
+        "month": "2019-07",
+        "price": 0.7393
+      },
+      {
+        "month": "2019-08",
+        "price": 0.7078
+      },
+      {
+        "month": "2019-09",
+        "price": 0.7064
+      },
+      {
+        "month": "2019-10",
+        "price": 0.6863
+      },
+      {
+        "month": "2019-11",
+        "price": 0.7328
+      },
+      {
+        "month": "2019-12",
+        "price": 0.7322
+      }
+    ]
+  },
+  "mark": {
+    "type": "area",
+    "color": "#3182bd",
+    "opacity": 0.6,
+    "line": true,
+    "strokeWidth": 1.5
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "temporal",
+      "title": null,
+      "axis": {
+        "grid": true
+      }
+    },
+    "y": {
+      "field": "price",
+      "type": "quantitative",
+      "title": "Coffee Price ($/lb)",
+      "axis": {
+        "titleFontWeight": "bold",
+        "grid": true
+      }
+    },
+    "tooltip": [
+      {
+        "field": "month",
+        "type": "temporal",
+        "title": "Month"
+      },
+      {
+        "field": "price",
+        "type": "quantitative",
+        "title": "Price",
+        "format": "$.3f"
+      }
+    ]
+  },
+  "config": {
+    "axis": {
+      "gridColor": "#ddd",
+      "gridOpacity": 0.5,
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

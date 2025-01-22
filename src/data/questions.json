@@ -1,0 +1,312 @@
+{
+  "quizzes": {
+    "original": {
+      "questions": [
+        {
+          "chart": "linechart",
+          "chart_uk": "лінійний графік",
+          "question": "What was the price of a barrel of oil in February 2020?",
+          "options": [
+            "$50.54",
+            "$47.02",
+            "$42.34",
+            "$42.34",
+            "Skip"
+          ],
+          "answer": "$50.54"
+        },
+        {
+          "chart": "barchart",
+          "chart_uk": "стовпчаста діаграма",
+          "question": "What is the average internet speed in Japan?",
+          "options": [
+            "42.30 Mbps",
+            "40.51 Mbps",
+            "35.25 Mbps",
+            "16.16 Mbps",
+            "Skip"
+          ],
+          "answer": "40.51 Mbps"
+        },
+        {
+          "chart": "stackedbarchart",
+          "chart_uk": "накопичувана стовпчаста діаграма",
+          "question": "What is the cost of peanuts in Seoul?",
+          "options": [
+            "$6.1",
+            "$5.2",
+            "$7.5",
+            "$4.5",
+            "Skip"
+          ],
+          "answer": "$6.1"
+        },
+        {
+          "chart": "stacked100",
+          "chart_uk": "накопичувана стовпчаста діаграма 100%",
+          "question": "Which country has the lowest proportion of Gold medals?",
+          "options": [
+            "Great Britain",
+            "U.S.A.",
+            "Japan",
+            "Australia",
+            "Skip"
+          ],
+          "answer": "Great Britain"
+        },
+        {
+          "chart": "piechart",
+          "chart_uk": "кругова діаграма",
+          "question": "What is the approximate global smartphone market share of Samsung?",
+          "options": [
+            "17.6%",
+            "25.3%",
+            "10.9%",
+            "35.2%",
+            "Skip"
+          ],
+          "answer": "17.6%"
+        },
+        {
+          "chart": "histogram",
+          "chart_uk": "гістограма",
+          "question": "What distance have customers traveled in the taxi the most?",
+          "options": [
+            "60 - 70 Km",
+            "30 - 40 Km",
+            "20 - 30 Km",
+            "50 - 60 Km",
+            "Skip"
+          ],
+          "answer": "30 - 40 Km"
+        },
+        {
+          "chart": "scatterplot",
+          "chart_uk": "точкова діаграма",
+          "question": "There is a negative linear relationship between the height and the weight of the 85 males.",
+          "options": [
+            "True",
+            "False",
+            "Skip"
+          ],
+          "answer": "False"
+        },
+        {
+          "chart": "areachart",
+          "chart_uk": "площева діаграма",
+          "question": "What was the average price of a pound of coffee beans in October 2019?",
+          "options": [
+            "$0.71",
+            "$0.90",
+            "$0.80",
+            "$0.63",
+            "Skip"
+          ],
+          "answer": "$0.71"
+        },
+        {
+          "chart": "stackedareachart",
+          "chart_uk": "накопичувана площева діаграма",
+          "question": "What was the ratio of girls named 'Isla' to girls named 'Amelia' in 2012 in the UK?",
+          "options": [
+            "1 to 1",
+            "1 to 2",
+            "1 to 3",
+            "1 to 4",
+            "Skip"
+          ],
+          "answer": "1 to 2"
+        },
+        {
+          "chart": "bubblechart",
+          "chart_uk": "бульбашкова діаграма",
+          "question": "Which city's metro system has the largest number of stations?",
+          "options": [
+            "Beijing",
+            "Shanghai",
+            "London",
+            "Seoul",
+            "Skip"
+          ],
+          "answer": "Shanghai"
+        },
+        {
+          "chart": "choropleth",
+          "chart_uk": "хороплетна карта",
+          "question": "In 2020, the unemployment rate for Washington (WA) was higher than that of Wisconsin (WI).",
+          "options": [
+            "True",
+            "False",
+            "Skip"
+          ],
+          "answer": "True"
+        },
+        {
+          "chart": "treemap",
+          "chart_uk": "деревоподібна діаграма",
+          "question": "eBay is nested in the Software category.",
+          "options": [
+            "True",
+            "False",
+            "Skip"
+          ],
+          "answer": "False"
+        }
+      ]
+    },
+    "ukrainian": {
+      "questions": [
+        {
+          "chart": "linechart",
+          "chart_uk": "лінійний графік",
+          "question": "Яка була ціна за барель нафти у лютому 2020 року?",
+          "options": [
+            "$50.54",
+            "$47.02",
+            "$42.34",
+            "$42.34",
+            "Пропустити"
+          ],
+          "answer": "$50.54"
+        },
+        {
+          "chart": "barchart",
+          "chart_uk": "стовпчаста діаграма",
+          "question": "Яка середня швидкість інтернету в Японії?",
+          "options": [
+            "42.30 Мбіт/с",
+            "40.51 Мбіт/с",
+            "35.25 Мбіт/с",
+            "16.16 Мбіт/с",
+            "Пропустити"
+          ],
+          "answer": "40.51 Мбіт/с"
+        },
+        {
+          "chart": "stackedbarchart",
+          "chart_uk": "накопичувана стовпчаста діаграма",
+          "question": "Яка вартість арахісу в Сеулі?",
+          "options": [
+            "$6.1",
+            "$5.2",
+            "$7.5",
+            "$4.5",
+            "Пропустити"
+          ],
+          "answer": "$6.1"
+        },
+        {
+          "chart": "stacked100",
+          "chart_uk": "накопичувана стовпчаста діаграма 100%",
+          "question": "Яка країна має найменшу частку золотих медалей?",
+          "options": [
+            "Велика Британія",
+            "США",
+            "Японія",
+            "Австралія",
+            "Пропустити"
+          ],
+          "answer": "Велика Британія"
+        },
+        {
+          "chart": "piechart",
+          "chart_uk": "кругова діаграма",
+          "question": "Яка приблизна глобальна частка ринку смартфонів Samsung?",
+          "options": [
+            "17.6%",
+            "25.3%",
+            "10.9%",
+            "35.2%",
+            "Пропустити"
+          ],
+          "answer": "17.6%"
+        },
+        {
+          "chart": "histogram",
+          "chart_uk": "гістограма",
+          "question": "Яку відстань клієнти найчастіше подорожували на таксі?",
+          "options": [
+            "60 - 70 км",
+            "30 - 40 км",
+            "20 - 30 км",
+            "50 - 60 км",
+            "Пропустити"
+          ],
+          "answer": "30 - 40 км"
+        },
+        {
+          "chart": "scatterplot",
+          "chart_uk": "точкова діаграма",
+          "question": "Існує негативний лінійний зв'язок між зростом та вагою 85 чоловіків.",
+          "options": [
+            "Правда",
+            "Неправда",
+            "Пропустити"
+          ],
+          "answer": "Неправда"
+        },
+        {
+          "chart": "areachart",
+          "chart_uk": "площева діаграма",
+          "question": "Яка була середня ціна фунта кавових зерен у жовтні 2019 року?",
+          "options": [
+            "$0.71",
+            "$0.90",
+            "$0.80",
+            "$0.63",
+            "Пропустити"
+          ],
+          "answer": "$0.71"
+        },
+        {
+          "chart": "stackedareachart",
+          "chart_uk": "накопичувана площева діаграма",
+          "question": "Яке було співвідношення гречаного меду до липового у 2012 році?",
+          "options": [
+            "1 до 1",
+            "1 до 2",
+            "1 до 3",
+            "1 до 4",
+            "Пропустити"
+          ],
+          "answer": "1 до 2"
+        },
+        {
+          "chart": "bubblechart",
+          "chart_uk": "бульбашкова діаграма",
+          "question": "Метро якого міста має найбільшу кількість станцій?",
+          "options": [
+            "Пекін",
+            "Шанхай",
+            "Лондон",
+            "Сеул",
+            "Пропустити"
+          ],
+          "answer": "Шанхай"
+        },
+        {
+          "chart": "choropleth",
+          "chart_uk": "хороплетна карта",
+          "question": "У першому півріччі 2024 р. кількість шлюбів в Харківській області була більшою, ніж у Волинській області.",
+          "options": [
+            "Правда",
+            "Неправда",
+            "Пропустити"
+          ],
+          "answer": "Правда"
+        },
+        {
+          "chart": "treemap",
+          "chart_uk": "деревоподібна діаграма",
+          "question": "eBay вкладено в категорію \"програмне забезпечення\".",
+          "options": [
+            "Правда",
+            "Неправда",
+            "Пропустити"
+          ],
+          "answer": "Неправда"
+        }
+      ]
+    }
+  }
+}

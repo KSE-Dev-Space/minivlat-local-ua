@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": "Oil Prices",
+  "data": {
+    "url": "data/linechart.json"
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Month",
+      "axis": {
+        "format": "%b %Y",
+        "labelOverlap": false,
+        "labelAngle": -25,
+        "labelAlign": "right",
+        "tickCount": "month"
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Oil Price (USD)",
+      "scale": {
+        "zero": true
+      }
+    }
+  }
+}

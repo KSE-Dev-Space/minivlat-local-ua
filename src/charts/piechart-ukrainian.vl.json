@@ -1,0 +1,39 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Розподіл світового ринку смартфонів у 2021 році",
+      "fontSize": 16,
+      "fontWeight": "bold"
+    },
+    "config": {
+      "legend": {
+        "labelFontSize": 11,
+        "titleFontSize": 12,
+        "titleFontWeight": "bold"
+      }
+    },
+    "width": 500, "height": 300,
+    "data": {
+      "values": [
+        {"brand": "Samsung", "share": 25},
+        {"brand": "Xiaomi", "share": 16},
+        {"brand": "Apple", "share": 15},
+        {"brand": "Oppo", "share": 10},
+        {"brand": "Vivo", "share": 10},
+        {"brand": "Інші", "share": 24}
+      ]
+    },
+    "encoding": {
+      "theta": {"field": "share", "type": "quantitative", "stack": true},
+      "color": {"field": "brand", "type": "nominal", "legend": null}
+    },
+    "layer": [{
+      "mark": {"type": "arc", "outerRadius": 120}
+    }, {
+      "mark": {"type": "text", "radius": 90},
+      "encoding": {
+        "text": {"field": "brand", "type": "nominal"},
+        "color": {"value": "black"}
+      }
+    }]
+}

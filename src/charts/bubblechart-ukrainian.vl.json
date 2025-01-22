@@ -1,0 +1,82 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Системи метро світу",
+      "fontSize": 16,
+      "fontWeight": "bold"
+    },
+    "width": 400,
+    "height": 400,
+    "data": {
+      "url": "data/bubblechart.csv"
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "circle",
+          "opacity": 0.7,
+          "stroke": "black",
+          "strokeWidth": 1,
+          "fill": "#3182bd"
+        },
+        "encoding": {
+          "x": {
+            "field": "NumberofStations",
+            "type": "quantitative",
+            "scale": {"domain": [150, 800]},
+            "axis": {
+              "title": "Кількість станцій",
+              "titleFontWeight": "bold",
+              "grid": true
+            }
+          },
+          "y": {
+            "field": "Length",
+            "type": "quantitative",
+            "scale": {"domain": [150, 500]},
+            "axis": {
+              "title": "Загальна довжина системи (км)",
+              "titleFontWeight": "bold",
+              "grid": true
+            }
+          },
+          "size": {
+            "field": "Ridership",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 5],
+              "range": [0, 1500]
+            },
+            "legend": {
+              "title": "Пасажиропотік (млрд на рік)",
+              "orient": "right",
+              "symbolType": "circle",
+              "values": [1.5, 2.5, 3.5]
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "fontSize": 11,
+          "dx": 15,
+          "align": "left"
+        },
+        "encoding": {
+          "x": {"field": "NumberofStations", "type": "quantitative"},
+          "y": {"field": "Length", "type": "quantitative"},
+          "text": {"field": "CityUK", "type": "nominal"}
+        }
+      }
+    ],
+    "config": {
+      "axis": {
+        "gridColor": "#ddd",
+        "gridDash": [1, 1],
+        "labelFontSize": 11,
+        "titleFontSize": 12
+      },
+      "view": {"stroke": null}
+    }
+  }

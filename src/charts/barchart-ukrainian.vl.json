@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Світова швидкість інтернету (МБіт/с)",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "url": "data/barchart.csv", "format": {"type": "csv"}
+  },
+  "width": "container",
+  "height": "container",
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "x": {
+      "field": "Country_UK",
+      "type": "nominal",
+      "title": "Країна",
+      "axis": {
+        "labelAngle": 40,
+        "labelAlign": "left",
+        "title": null,
+        "labelPadding": 10
+      }
+    },
+    "y": {
+      "field": "Speed",
+      "type": "quantitative",
+      "axis": {
+        "title": "Швидкість інтернету (МБіт/с)",
+        "titleFontWeight": "bold",
+        "grid": true
+      }
+    }
+  }
+}

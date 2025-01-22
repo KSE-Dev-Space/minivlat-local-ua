@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Вага та зріст 85 осіб",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "data/scatterplot.csv"
+  },
+  "mark": {
+    "type": "circle",
+    "size": 40,
+    "fill": "#3182bd",
+    "opacity": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "Height",
+      "type": "quantitative",
+      "scale": {
+        "domain": [155, 190]
+      },
+      "axis": {
+        "title": "Зріст (см)",
+        "titleFontWeight": "bold",
+        "grid": true,
+        "gridDash": [1, 1],
+        "ticks": 5
+      }
+    },
+    "y": {
+      "field": "Weight",
+      "type": "quantitative",
+      "scale": {
+        "domain": [40, 75]
+      },
+      "axis": {
+        "title": "Вага (кг)",
+        "titleFontWeight": "bold",
+        "grid": true,
+        "gridDash": [1, 1],
+        "ticks": 8
+      }
+    },
+    "tooltip": [
+      {"field": "Height", "title": "Зріст", "format": ".1f"},
+      {"field": "Weight", "title": "Вага", "format": ".1f"}
+    ]
+  },
+  "config": {
+    "axis": {
+      "gridColor": "#ddd",
+      "gridOpacity": 0.5,
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

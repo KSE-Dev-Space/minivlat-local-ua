@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Розподіл олімпійських медалей за країною",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "url": "data/stacked100.csv"
+  },
+  "width": 500,
+  "height": 300,
+  "encoding": {
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "Відсоток",
+        "format": ".0%",
+        "grid": true
+      },
+      "stack": "normalize"
+    },
+    "x": {
+      "field": "CountriesUK",
+      "type": "nominal",
+      "axis": {
+        "title": null,
+        "labelAngle": 40,
+        "titleFontWeight": "bold"
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Золото",
+          "Срібло",
+          "Бронза"
+        ],
+        "range": [
+          "#FFD700",
+          "#C0C0C0",
+          "#CD7F32"
+        ]
+      },
+      "legend": {
+        "title": "Медалі",
+        "orient": "right"
+      }
+    }
+  },
+  "mark": "bar",
+  "transform": [
+    {
+      "fold": [
+        "Gold",
+        "Silver",
+        "Bronze"
+      ],
+      "as": [
+        "category",
+        "value"
+      ]
+    },
+    {
+      "calculate": "datum.category === 'Gold' ? 'Золото' : datum.category === 'Silver' ? 'Срібло' : 'Бронза'",
+      "as": "category"
+    },
+    {
+      "sort": [
+        {"field": "category", "order": "descending"}
+      ]
+    }
+  ],
+  "config": {
+    "axis": {
+      "grid": true,
+      "gridColor": "#ddd"
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

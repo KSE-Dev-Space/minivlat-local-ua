@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Global Internet Speed (Mbps)",
+    "fontSize": 16,
+    "fontWeight": "bold"
+  },
+  "data": {
+    "url": "data/barchart.csv", "format": {"type": "csv"}
+  },
+  "width": "container",
+  "height": "container",
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "x": {
+      "field": "Country",
+      "type": "nominal",
+      "axis": {
+        "labelAngle": 40,
+        "labelAlign": "left",
+        "title": null,
+        "labelPadding": 10
+      }
+    },
+    "y": {
+      "field": "Speed",
+      "type": "quantitative",
+      "axis": {
+        "title": "Internet Speed (Mbps)",
+        "titleFontWeight": "bold",
+        "grid": true
+      }
+    }
+  }
+}

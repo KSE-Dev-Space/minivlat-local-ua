@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": "Ціни на нафту",
+  "data": {
+    "url": "data/linechart.json"
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Місяць",
+      "axis": {
+        "format": "%b %Y",
+        "labelOverlap": false,
+        "labelAngle": -25,
+        "labelAlign": "right",
+        "tickCount": "month"
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Ціна за барель нафти ($)",
+      "scale": {
+        "zero": true
+      }
+    }
+  }
+}

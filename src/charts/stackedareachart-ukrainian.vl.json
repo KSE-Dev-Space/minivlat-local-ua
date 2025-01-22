@@ -1,0 +1,122 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Популярність виробництва сортів меду",
+        "fontSize": 16,
+        "fontWeight": "bold"
+    },
+    "width": 400,
+    "height": 400,
+    "data": {
+        "values": [
+            {
+                "Year": 2009,
+                "Липовий": 3625,
+                "Гречаний": 1908,
+                "Акацієвий": 5201
+            },
+            {
+                "Year": 2010,
+                "Липовий": 4227,
+                "Гречаний": 2384,
+                "Акацієвий": 5279
+            },
+            {
+                "Year": 2011,
+                "Липовий": 5054,
+                "Гречаний": 2849,
+                "Акацієвий": 4938
+            },
+            {
+                "Year": 2012,
+                "Липовий": 7061,
+                "Гречаний": 3501,
+                "Акацієвий": 4585
+            },
+            {
+                "Year": 2013,
+                "Липовий": 5570,
+                "Гречаний": 3526,
+                "Акацієвий": 4598
+            },
+            {
+                "Year": 2014,
+                "Липовий": 5327,
+                "Гречаний": 4012,
+                "Акацієвий": 4724
+            }
+        ]
+    },
+    "encoding": {
+        "x": {
+            "field": "Year",
+            "type": "quantitative",
+            "axis": {
+                "title": "Рік",
+                "titleFontWeight": "bold",
+                "grid": true
+            }
+        },
+        "y": {
+            "field": "value",
+            "type": "quantitative",
+            "axis": {
+                "title": "Кількість тонн",
+                "titleFontWeight": "bold",
+                "grid": true
+            }
+        },
+        "color": {
+            "field": "name",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Липовий",
+                    "Гречаний",
+                    "Акацієвий"
+                ],
+                "range": [
+                    "#3182bd",
+                    "#9ecae1",
+                    "#deebf7"
+                ]
+            },
+            "legend": {
+                "title": null,
+                "orient": "right"
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "area",
+                "opacity": 0.7
+            },
+            "transform": [
+                {
+                    "fold": [
+                        "Липовий",
+                        "Гречаний",
+                        "Акацієвий"
+                    ],
+                    "as": [
+                        "name",
+                        "value"
+                    ]
+                }
+            ]
+        }
+    ],
+    "config": {
+        "axis": {
+            "gridColor": "#ddd",
+            "gridOpacity": 0.5,
+            "labelFontSize": 11,
+            "titleFontSize": 12
+        },
+        "view": {
+            "stroke": null
+        }
+    }
+}

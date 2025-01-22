@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: mini-vlat-adaptation
+    image: node:14
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    env_file:
+      - .env
+    command: sh -c "npm install && npm start"
+
+  traefik:
+    image: traefik:v2.5
+    container_name: traefik
+    ports:
+      - "80:80"
+      - "8080:8080"
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.http.routers.web.rule=Host(`${YOUR_DOMAIN}`)"
+      - "traefik.http.services.web.loadbalancer.server.port=3000"

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/quiz.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="timer">Time remaining: <span id="time">25</span>s</div>
+        <div id="quiz" style="display: flex;">
+            <div id="chart" style="flex: 1; display: flex; justify-content: center; align-items: center;"></div>
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div id="question-text"></div>
+                <div id="options"></div>
+                <!-- Removed submit button -->
+            </div>
+        </div>
+        <div id="results"></div>
+    </div>
+</body>
+</html>

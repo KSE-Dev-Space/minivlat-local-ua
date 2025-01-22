@@ -1,0 +1,113 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Unemployment Rates for States in 2020",
+      "fontSize": 16,
+      "fontWeight": "bold"
+    },
+    "width": 500,
+    "height": 500,
+    "projection": {
+      "type": "albersUsa"
+    },
+    "layer": [
+      {
+        "data": {
+          "url": "data/topo-USA.json",
+          "format": {
+            "type": "topojson",
+            "feature": "states"
+          }
+        },
+        "transform": [
+          {
+            "lookup": "id",
+            "from": {
+              "data": {
+                "url": "data/choropleth.csv"
+              },
+              "key": "id",
+              "fields": ["rate"]
+            }
+          }
+        ],
+        "mark": {
+          "type": "geoshape",
+          "stroke": "#fff",
+          "strokeWidth": 0.5
+        },
+        "encoding": {
+          "color": {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Unemployment Rate (%)",
+            "scale": {
+              "scheme": "blues"
+            },
+            "legend": {
+              "title": "Unemployment Rate (%)",
+              "orient": "top",
+              "direction": "horizontal"
+            }
+          }
+        }
+      },
+      {
+        "data": {
+          "url": "data/topo-USA.json",
+          "format": {
+            "type": "topojson",
+            "feature": "states"
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "filled": false,
+          "stroke": "#ccc",
+          "strokeWidth": 0.5
+        }
+      },
+      {
+        "data": {
+          "url": "data/choropleth.csv"
+        },
+        "transform": [
+          {
+            "lookup": "code",
+            "from": {
+              "data": {
+                "url": "data/state-coordinates.json"
+              },
+              "key": "code",
+              "fields": ["latitude", "longitude"]
+            }
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "color": "black",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "longitude": {
+            "field": "longitude",
+            "type": "quantitative"
+          },
+          "latitude": {
+            "field": "latitude",
+            "type": "quantitative"
+          },
+          "text": {
+            "field": "code",
+            "type": "nominal"
+          }
+        }
+      }
+    ],
+    "config": {
+      "view": {
+        "stroke": null
+      }
+    }
+  }
