@@ -14,13 +14,13 @@
     },
     "width": 500, "height": 300,
     "data": {
-      "values": [
-        {"brand": "Samsung", "share": 25},
-        {"brand": "Xiaomi", "share": 16},
-        {"brand": "Apple", "share": 15},
-        {"brand": "Oppo", "share": 10},
-        {"brand": "Vivo", "share": 10},
-        {"brand": "Інші", "share": 24}
+      "values": [        
+        {"brand": "Samsung", "share": 17.6},
+        {"brand": "Xiaomi", "share": 15.5},
+        {"brand": "Apple", "share": 15.0},
+        {"brand": "Oppo", "share": 10.2},
+        {"brand": "Vivo", "share": 9.8},
+        {"brand": "Інші", "share": 31.9}
       ]
     },
     "encoding": {
