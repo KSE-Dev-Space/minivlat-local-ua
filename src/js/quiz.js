@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentQuestionIndex = 0;
     let score = 0;
     let quizResults = [];
-    let timeLeft = 25;
+    let timeLeft = 25000; // 25 seconds in milliseconds
     let timer;
     let startTime = new Date().toISOString();
 
@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const browserInfo = {
         userAgent: navigator.userAgent,
         screenResolution: `${window.screen.width}x${window.screen.height}`,
-        operatingSystem: navigator.platform
+        operatingSystem: navigator.platform,
+        hostname: window.location.hostname // Store hostname
     };
 
     // Check if there is a completed quiz
@@ -61,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Complete timer reset
         stopTimer();
-        timeLeft = 25;
-        timerDisplay.textContent = timeLeft;
+        timeLeft = 25000; // 25 seconds in milliseconds
+        timerDisplay.textContent = (timeLeft / 1000).toFixed(1); // Display in seconds
 
         const question = questions[currentQuestionIndex];
         const chartFile = `charts/${question.chart}-${version}.vl.json`;
@@ -115,18 +116,18 @@ document.addEventListener('DOMContentLoaded', function () {
         stopTimer();
 
         // Ensure display shows starting value
-        timerDisplay.textContent = timeLeft;
+        timerDisplay.textContent = (timeLeft / 1000).toFixed(1); // Display in seconds
 
         timer = setInterval(() => {
-            timeLeft--;
-            timerDisplay.textContent = timeLeft;
+            timeLeft -= 100; // Decrease by 100 milliseconds
+            timerDisplay.textContent = (timeLeft / 1000).toFixed(1); // Display in seconds
 
             if (timeLeft <= 0) {
                 stopTimer();
                 alert("Time's up! Moving to the next question.");
                 submitAnswer(true);
             }
-        }, 1000);
+        }, 100);
     }
 
     function storeQuizProgress() {
@@ -141,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
             participantData: JSON.parse(localStorage.getItem('participantData') || '{}'),
             startTime: startTime, // Store start time
             browserId: browserId, // Store browser ID
-            browserInfo: browserInfo // Store browser info
+            browserInfo: browserInfo // Store browser info including hostname
         };
         const allQuizzes = JSON.parse(localStorage.getItem('allQuizzes') || '{}');
         allQuizzes[quizId] = currentProgress;
@@ -172,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             isCorrect: isCorrect,
             questionIndex: currentQuestionIndex,
             timestamp: new Date().toISOString(),
-            timeSpent: 25 - timeLeft,
+            timeSpent: 25000 - timeLeft, // Time spent in milliseconds
             chartType: currentQuestion.chart,
             chartTypeUk: currentQuestion.chart_uk // Include chart_uk type
         });
@@ -182,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         currentQuestionIndex++;
         // Reset timer state before showing next question
-        timeLeft = 25;
+        timeLeft = 25000; // 25 seconds in milliseconds
         displayQuestion();
     }
 
