@@ -5,7 +5,7 @@
       "fontSize": 16,
       "fontWeight": "bold"
     },
-    "width": 500,
+    "width": "container",
     "height": 500,
     "projection": {
       "type": "albersUsa"

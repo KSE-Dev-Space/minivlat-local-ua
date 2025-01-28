@@ -5,42 +5,42 @@
         "fontSize": 16,
         "fontWeight": "bold"
     },
-    "width": 400,
-    "height": 400,
+    "width": "container",
+    "height": 500,
     "data": {
         "values": [
             {
-                "Year": 2009,
+                "Year": "2009-01-01",
                 "Amelia": 3625,
                 "Isla": 1908,
                 "Olivia": 5201
             },
             {
-                "Year": 2010,
+                "Year": "2010-01-01",
                 "Amelia": 4227,
                 "Isla": 2384,
                 "Olivia": 5279
             },
             {
-                "Year": 2011,
+                "Year": "2011-01-01",
                 "Amelia": 5054,
                 "Isla": 2849,
                 "Olivia": 4938
             },
             {
-                "Year": 2012,
+                "Year": "2012-01-01",
                 "Amelia": 7061,
                 "Isla": 3501,
                 "Olivia": 4585
             },
             {
-                "Year": 2013,
+                "Year": "2013-01-01",
                 "Amelia": 5570,
                 "Isla": 3526,
                 "Olivia": 4598
             },
             {
-                "Year": 2014,
+                "Year": "2014-01-01",
                 "Amelia": 5327,
                 "Isla": 4012,
                 "Olivia": 4724
@@ -50,7 +50,8 @@
     "encoding": {
         "x": {
             "field": "Year",
-            "type": "quantitative",
+            "type": "temporal",
+            "timeUnit": "year",
             "axis": {
                 "title": "Year",
                 "titleFontWeight": "bold",
@@ -104,8 +105,18 @@
                         "name",
                         "value"
                     ]
+                },
+                {
+                    "calculate": "datum.name === 'Amelia' ? 1 : datum.name === 'Isla' ? 2 : 3",
+                    "as": "order"
                 }
-            ]
+            ],
+            "encoding": {
+                "order": {
+                    "field": "order",
+                    "type": "quantitative"
+                }
+            }
         }
     ],
     "config": {

@@ -130,6 +130,11 @@
       "axis": {
         "titleFontWeight": "bold",
         "grid": true
+      },
+      "stack": null,
+      "scale": {
+        "zero": false,
+        "domainMin": 0.5
       }
     },
     "tooltip": [

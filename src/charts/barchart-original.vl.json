@@ -9,7 +9,7 @@
     "url": "data/barchart.csv", "format": {"type": "csv"}
   },
   "width": "container",
-  "height": "container",
+  "height": 400,
   "mark": {
     "type": "bar"
   },
