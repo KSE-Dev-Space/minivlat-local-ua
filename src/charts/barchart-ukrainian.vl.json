@@ -9,7 +9,7 @@
     "url": "data/barchart.csv", "format": {"type": "csv"}
   },
   "width": "container",
-  "height": "container",
+  "height": 400,
   "mark": {
     "type": "bar"
   },
@@ -32,6 +32,9 @@
         "title": "Швидкість інтернету (МБіт/с)",
         "titleFontWeight": "bold",
         "grid": true
+      },
+      "scale": {
+        "zero": true
       }
     }
   }

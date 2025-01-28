@@ -5,8 +5,8 @@
     "fontSize": 16,
     "fontWeight": "bold"
   },
-  "width": 500,
-  "height": 300,
+  "width": "container",
+  "height": 400,
   "data": {
     "values": [
       {
@@ -120,7 +120,9 @@
       "type": "temporal",
       "title": null,
       "axis": {
-        "grid": true
+        "grid": true,
+        "tickCount": 4,
+        "labelExpr": "timeFormat(datum.value, '%b %Y')"
       }
     },
     "y": {
@@ -130,6 +132,11 @@
       "axis": {
         "titleFontWeight": "bold",
         "grid": true
+      },
+      "stack": null,
+      "scale": {
+        "zero": false,
+        "domainMin": 0.5
       }
     },
     "tooltip": [

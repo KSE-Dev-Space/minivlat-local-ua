@@ -8,8 +8,8 @@
   "data": {
     "url": "data/stacked100.csv"
   },
-  "width": 500,
-  "height": 300,
+  "width": "container",
+  "height": 400,
   "encoding": {
     "y": {
       "field": "value",
@@ -49,6 +49,11 @@
         "title": "Медалі",
         "orient": "right"
       }
+    },
+    "order": {
+      "field": "order",
+      "type": "quantitative",
+      "sort": "ascending"
     }
   },
   "mark": "bar",
@@ -69,9 +74,8 @@
       "as": "category"
     },
     {
-      "sort": [
-        {"field": "category", "order": "descending"}
-      ]
+      "calculate": "datum.category === 'Gold' ? 1 : datum.category === 'Silver' ? 2 : 3",
+      "as": "order"
     }
   ],
   "config": {

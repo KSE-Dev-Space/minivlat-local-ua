@@ -5,7 +5,7 @@
         "fontSize": 16,
         "fontWeight": "bold"
     },
-    "width": 400,
+    "width": "container",
     "height": 400,
     "data": {
         "values": [

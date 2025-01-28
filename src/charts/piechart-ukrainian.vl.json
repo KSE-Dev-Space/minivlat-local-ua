@@ -12,7 +12,7 @@
         "titleFontWeight": "bold"
       }
     },
-    "width": 500, "height": 300,
+    "width": "container", "height": 400,
     "data": {
       "values": [        
         {"brand": "Samsung", "share": 17.6},

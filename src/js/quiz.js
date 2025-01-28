@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Check if there is a completed quiz
     const allQuizzes = JSON.parse(localStorage.getItem('allQuizzes') || '{}');
     if (allQuizzes[quizId] && allQuizzes[quizId].completed) {
-        alert("You have already completed the quiz. Redirecting to the questionnaire.");
+        alert("Ви вже пройшли дослідження. Дякуємо! Перенаправлення на головну сторінку тесту.");
         window.location.href = 'index.html';
         return;
     }
