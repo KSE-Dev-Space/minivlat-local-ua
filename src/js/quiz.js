@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const timerDisplay = document.getElementById('time');
+    const timerLabel = document.getElementById('timer-label'); // Add a label for the timer
     const version = localStorage.getItem('quizVersion');
     const quizId = 'quiz';
     let questions = [];
@@ -14,6 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let timeLeft = initialTimeLeft;
     let timer;
     let startTime = new Date().toISOString();
+
+    // Set timer label based on version
+    if (version === 'ukrainian') {
+        timerLabel.textContent = 'Час, що залишився:';
+    } else {
+        timerLabel.textContent = 'Time remaining:';
+    }
 
     // Generate and store browser ID
     function generateBrowserId() {
