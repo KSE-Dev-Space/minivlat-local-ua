@@ -72,6 +72,7 @@ form button {
 
 #quiz {
     display: flex;
+    flex-direction: column;
 }
 
 #chart {
@@ -79,6 +80,17 @@ form button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    #quiz {
+        flex-direction: row;
+    }
+
+    #chart {
+        margin-bottom: 0;
+    }
 }
 
 #question-text, #options {
@@ -104,6 +116,13 @@ form button {
 
 #submit {
     margin-top: 20px;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 table {

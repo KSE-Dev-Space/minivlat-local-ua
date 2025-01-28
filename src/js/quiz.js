@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentQuestionIndex = 0;
     let score = 0;
     let quizResults = [];
-    let timeLeft = 25000; // 25 seconds in milliseconds
+    const initialTimeLeft = 250000; // 25 seconds in milliseconds
+    let timeLeft = initialTimeLeft;
     let timer;
     let startTime = new Date().toISOString();
 
@@ -62,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Complete timer reset
         stopTimer();
-        timeLeft = 25000; // 25 seconds in milliseconds
-        timerDisplay.textContent = (timeLeft / 1000).toFixed(1); // Display in seconds
+        timeLeft = initialTimeLeft; // Reset to initial time
+        timerDisplay.textContent = Math.ceil(timeLeft / 1000); // Display in whole seconds
 
         const question = questions[currentQuestionIndex];
         const chartFile = `charts/${question.chart}-${version}.vl.json`;
@@ -116,11 +117,11 @@ document.addEventListener('DOMContentLoaded', function () {
         stopTimer();
 
         // Ensure display shows starting value
-        timerDisplay.textContent = (timeLeft / 1000).toFixed(1); // Display in seconds
+        timerDisplay.textContent = Math.ceil(timeLeft / 1000); // Display in whole seconds
 
         timer = setInterval(() => {
             timeLeft -= 100; // Decrease by 100 milliseconds
-            timerDisplay.textContent = (timeLeft / 1000).toFixed(1); // Display in seconds
+            timerDisplay.textContent = Math.ceil(timeLeft / 1000); // Display in whole seconds
 
             if (timeLeft <= 0) {
                 stopTimer();
@@ -183,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         currentQuestionIndex++;
         // Reset timer state before showing next question
-        timeLeft = 25000; // 25 seconds in milliseconds
+        timeLeft = initialTimeLeft; // Reset to initial time
         displayQuestion();
     }
 
