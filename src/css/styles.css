@@ -101,6 +101,7 @@ form button {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    width: 100%; /* Ensure chart takes full width */
 }
 
 #question-block {
@@ -110,6 +111,7 @@ form button {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    width: 100%; /* Ensure question block takes full width */
 }
 
 @media (min-width: 768px) {

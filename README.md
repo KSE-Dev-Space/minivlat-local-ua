@@ -44,9 +44,9 @@ This project is a simple web application designed to collect responses from user
    ```
    npm install
    ```
-4. Start the server:
+4. Start the server and bind it to all network interfaces (0.0.0.0):
    ```
-   node server.js
+   node server.js --host 0.0.0.0
    ```
 5. Open your web browser and go to `http://localhost:3000` to access the application.
 
