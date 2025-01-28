@@ -3,6 +3,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
+    height: 100%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2, h3 {
@@ -70,9 +77,22 @@ form button {
     margin-top: 20px;
 }
 
+#quiz-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
 #quiz {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 #chart {
@@ -80,7 +100,16 @@ form button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 20px;
+}
+
+#question-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 @media (min-width: 768px) {
