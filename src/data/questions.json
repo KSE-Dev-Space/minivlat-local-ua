@@ -13,7 +13,8 @@
             "$42.34",
             "Skip"
           ],
-          "answer": "$50.54"
+          "answer": "$50.54",
+          "image": "svg"
         },
         {
           "chart": "barchart",
@@ -26,7 +27,8 @@
             "16.16 Mbps",
             "Skip"
           ],
-          "answer": "40.51 Mbps"
+          "answer": "40.51 Mbps",
+          "image": "svg"
         },
         {
           "chart": "stackedbarchart",
@@ -39,7 +41,8 @@
             "$4.5",
             "Skip"
           ],
-          "answer": "$6.1"
+          "answer": "$6.1",
+          "image": "svg"
         },
         {
           "chart": "stacked100",
@@ -52,7 +55,8 @@
             "Australia",
             "Skip"
           ],
-          "answer": "Great Britain"
+          "answer": "Great Britain",
+          "image": "svg"
         },
         {
           "chart": "piechart",
@@ -65,7 +69,8 @@
             "35.2%",
             "Skip"
           ],
-          "answer": "17.6%"
+          "answer": "17.6%",
+          "image": "svg"
         },
         {
           "chart": "histogram",
@@ -78,7 +83,8 @@
             "50 - 60 Km",
             "Skip"
           ],
-          "answer": "30 - 40 Km"
+          "answer": "30 - 40 Km",
+          "image": "svg"
         },
         {
           "chart": "scatterplot",
@@ -89,7 +95,8 @@
             "False",
             "Skip"
           ],
-          "answer": "False"
+          "answer": "False",
+          "image": "svg"
         },
         {
           "chart": "areachart",
@@ -102,7 +109,8 @@
             "$0.63",
             "Skip"
           ],
-          "answer": "$0.71"
+          "answer": "$0.71",
+          "image": "svg"
         },
         {
           "chart": "stackedareachart",
@@ -115,7 +123,8 @@
             "1 to 4",
             "Skip"
           ],
-          "answer": "1 to 2"
+          "answer": "1 to 2",
+          "image": "svg"
         },
         {
           "chart": "bubblechart",
@@ -128,7 +137,8 @@
             "Seoul",
             "Skip"
           ],
-          "answer": "Shanghai"
+          "answer": "Shanghai",
+          "image": "svg"
         },
         {
           "chart": "choropleth",
@@ -139,7 +149,8 @@
             "False",
             "Skip"
           ],
-          "answer": "True"
+          "answer": "True",
+          "image": "svg"
         },
         {
           "chart": "treemap",
@@ -150,7 +161,8 @@
             "False",
             "Skip"
           ],
-          "answer": "False"
+          "answer": "False",
+          "image": "png"
         }
       ]
     },
@@ -167,7 +179,8 @@
             "$42.34",
             "Пропустити"
           ],
-          "answer": "$50.54"
+          "answer": "$50.54",
+          "image": "svg"
         },
         {
           "chart": "barchart",
@@ -180,7 +193,8 @@
             "16.16 Мбіт/с",
             "Пропустити"
           ],
-          "answer": "40.51 Мбіт/с"
+          "answer": "40.51 Мбіт/с",
+          "image": "svg"
         },
         {
           "chart": "stackedbarchart",
@@ -193,7 +207,8 @@
             "$4.5",
             "Пропустити"
           ],
-          "answer": "$6.1"
+          "answer": "$6.1",
+          "image": "svg"
         },
         {
           "chart": "stacked100",
@@ -206,7 +221,8 @@
             "Австралія",
             "Пропустити"
           ],
-          "answer": "Велика Британія"
+          "answer": "Велика Британія",
+          "image": "svg"
         },
         {
           "chart": "piechart",
@@ -219,7 +235,8 @@
             "35.2%",
             "Пропустити"
           ],
-          "answer": "17.6%"
+          "answer": "17.6%",
+          "image": "svg"
         },
         {
           "chart": "histogram",
@@ -232,7 +249,8 @@
             "50 - 60 км",
             "Пропустити"
           ],
-          "answer": "30 - 40 км"
+          "answer": "30 - 40 км",
+          "image": "svg"
         },
         {
           "chart": "scatterplot",
@@ -243,7 +261,8 @@
             "Неправда",
             "Пропустити"
           ],
-          "answer": "Неправда"
+          "answer": "Неправда",
+          "image": "svg"
         },
         {
           "chart": "areachart",
@@ -256,7 +275,8 @@
             "$0.63",
             "Пропустити"
           ],
-          "answer": "$0.71"
+          "answer": "$0.71",
+          "image": "svg"
         },
         {
           "chart": "stackedareachart",
@@ -269,7 +289,8 @@
             "1 до 4",
             "Пропустити"
           ],
-          "answer": "1 до 2"
+          "answer": "1 до 2",
+          "image": "svg"
         },
         {
           "chart": "bubblechart",
@@ -282,7 +303,8 @@
             "Сеул",
             "Пропустити"
           ],
-          "answer": "Шанхай"
+          "answer": "Шанхай",
+          "image": "svg"
         },
         {
           "chart": "choropleth",
@@ -293,7 +315,8 @@
             "Неправда",
             "Пропустити"
           ],
-          "answer": "Правда"
+          "answer": "Правда",
+          "image": "svg"
         },
         {
           "chart": "treemap",
@@ -304,7 +327,8 @@
             "Неправда",
             "Пропустити"
           ],
-          "answer": "Неправда"
+          "answer": "Неправда",
+          "image": "png"
         }
       ]
     }

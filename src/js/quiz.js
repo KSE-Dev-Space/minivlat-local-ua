@@ -75,37 +75,11 @@ document.addEventListener('DOMContentLoaded', function () {
         timerDisplay.textContent = Math.ceil(timeLeft / 1000); // Display in whole seconds
 
         const question = questions[currentQuestionIndex];
-        const chartFile = `charts/${question.chart}-${version}.vl.json`;
+        // const chartFile = `charts/${question.chart}-${version}.vl.json`; // Comment out vegaEmbed chart file
 
-        // Embed the Vega-Lite chart
-        const embedOptions = {
-            downloadFileName: `${question.chart}-${version}`,
-            actions: {
-                export: {
-                    svg: true,
-                    png: true
-                },
-                source: false,
-                compiled: false,
-                editor: false
-            },
-            tooltip: false  // Disable tooltips
-        };
-
-        if (version === 'ukrainian') {
-            embedOptions.timeFormatLocale = {
-            dateTime: "%A, %e %B %Y р. %X",
-            date: "%d.%m.%Y",
-            time: "%H:%M:%S",
-            periods: ["", ""],
-            days: ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"],
-            shortDays: ["нд", "пн", "вт", "ср", "чт", "пт", "сб"],
-            months: ["січень", "лютий", "березень", "квітень", "травень", "червень", "липень", "серпень", "вересень", "жовтень", "листопад", "грудень"],
-            shortMonths: ["січ", "лют", "бер", "кві", "тра", "чер", "лип", "сер", "вер", "жов", "лис", "гру"]
-            };
-        }
-
-        vegaEmbed('#chart', chartFile, embedOptions).catch(console.error);
+        // Embed the image instead of the Vega-Lite chart
+        const imagePath = `/images/${question.chart}-${version}.${question.image}`;
+        document.getElementById('chart').innerHTML = `<img src="${imagePath}" alt="${question.chart_uk}">`;
 
         // Update question and options
         document.getElementById('question-text').innerHTML = question.question;

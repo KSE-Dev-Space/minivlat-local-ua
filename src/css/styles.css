@@ -104,6 +104,11 @@ form button {
     width: 100%; /* Ensure chart takes full width */
 }
 
+#chart img {
+    max-width: 100%;
+    height: auto;
+}
+
 #question-block {
     flex: 1;
     display: flex;
