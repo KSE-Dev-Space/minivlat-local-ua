@@ -5,7 +5,7 @@
       "fontSize": 16,
       "fontWeight": "bold"
     },
-    "width": "container",
+    "width": 800,
     "height": 400,
     "data": {
       "url": "data/bubblechart.csv"

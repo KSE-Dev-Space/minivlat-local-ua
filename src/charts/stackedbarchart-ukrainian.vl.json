@@ -6,7 +6,7 @@
   "data": {
     "url": "data/stackedbarchart.csv"
   },
-  "width": "container",
+  "width": 800,
   "height": 400,
   "encoding": {
     "x": {

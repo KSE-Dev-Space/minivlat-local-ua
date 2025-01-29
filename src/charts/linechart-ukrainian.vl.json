@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 800,
   "height": 400,
   "title": "Ціни на нафту",
   "data": {

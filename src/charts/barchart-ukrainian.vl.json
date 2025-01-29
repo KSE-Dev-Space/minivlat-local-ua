@@ -8,7 +8,7 @@
   "data": {
     "url": "data/barchart.csv", "format": {"type": "csv"}
   },
-  "width": "container",
+  "width": 800,
   "height": 400,
   "mark": {
     "type": "bar"

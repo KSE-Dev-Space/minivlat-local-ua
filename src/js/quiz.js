@@ -79,7 +79,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Embed the Vega-Lite chart
         const embedOptions = {
-            actions: false, // Disable kebab menu
+            downloadFileName: `${question.chart}-${version}`,
+            actions: {
+                export: {
+                    svg: true,
+                    png: true
+                },
+                source: false,
+                compiled: false,
+                editor: false
+            },
             tooltip: false  // Disable tooltips
         };
 
