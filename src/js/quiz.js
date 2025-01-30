@@ -56,12 +56,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error('Invalid quiz data or version');
             }
             questions = data.quizzes[version].questions;
+            questions = shuffleArray(questions); // Randomize the order of questions
             displayQuestion();
         })
         .catch(error => {
             console.error('Error loading quiz:', error);
             quizContainer.innerHTML = '<p>Error loading quiz. Please try again later.</p>';
         });
+
+    // Function to shuffle an array
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
 
     function displayQuestion() {
         if (!questions || currentQuestionIndex >= questions.length) {
@@ -162,6 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
             correctAnswer: currentQuestion.answer,
             isCorrect: isCorrect,
             questionIndex: currentQuestionIndex,
+            ordinalNumber: currentQuestionIndex + 1, // Store the ordinal number of the question
             timestamp: new Date().toISOString(),
             timeSpent: 25000 - timeLeft, // Time spent in milliseconds
             chartType: currentQuestion.chart,
