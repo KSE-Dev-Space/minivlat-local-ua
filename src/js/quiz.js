@@ -75,10 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
         timerDisplay.textContent = Math.ceil(timeLeft / 1000); // Display in whole seconds
 
         const question = questions[currentQuestionIndex];
-        // const chartFile = `charts/${question.chart}-${version}.vl.json`; // Comment out vegaEmbed chart file
-
-        // Embed the image instead of the Vega-Lite chart
-        const imagePath = `/images/${question.chart}-${version}.${question.image}`;
+        const imageVersion = version === 'translated' ? 'original' : version;
+        const imagePath = `/images/${question.chart}-${imageVersion}.${question.image}`;
         document.getElementById('chart').innerHTML = `<img src="${imagePath}" alt="${question.chart_uk}">`;
 
         // Update question and options

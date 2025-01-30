@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const quizId = 'quiz';
         if (allQuizzes[quizId]) {
             allQuizzes[quizId].participantData = participantData;
+            allQuizzes[quizId].iterationVersion = 'v1.0.0'; // Add semantic versioning
             localStorage.setItem('allQuizzes', JSON.stringify(allQuizzes));
         }
 
