@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentQuestionIndex = 0;
     let score = 0;
     let quizResults = [];
-    const initialTimeLeft = 250000; // 25 seconds in milliseconds
+    const initialTimeLeft = 25000; // 25 seconds in milliseconds
     let timeLeft = initialTimeLeft;
     let timer;
     let startTime = new Date().toISOString();
