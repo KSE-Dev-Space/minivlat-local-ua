@@ -31,6 +31,18 @@
           </p>
 
         <button id="consentButton">Погоджуюсь з умовами, розпочати тест</button>
+        <script>
+            document.getElementById('consentButton').addEventListener('click', function() {
+                fetch('data/questions.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const quizVersions = Object.keys(data.quizzes);
+                        const randomVersion = quizVersions[Math.floor(Math.random() * quizVersions.length)];
+                        localStorage.setItem('quizVersion', randomVersion);
+                        window.location.href = 'quiz.html';
+                    });
+            });
+        </script>
     </div>
 </body>
 </html>
