@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
         timerDisplay.textContent = Math.ceil(timeLeft / 1000); // Display in whole seconds
 
         const question = questions[currentQuestionIndex];
-        const imageVersion = version === 'translated' ? 'original' : version;
+        const imageVersion = version;
         const imagePath = `/images/${question.chart}-${imageVersion}.${question.image}`;
         document.getElementById('chart').innerHTML = `<img src="${imagePath}" alt="${question.chart_uk}">`;
 
