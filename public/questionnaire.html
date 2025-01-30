@@ -43,9 +43,9 @@
             <label for="familiarity">Ваш досвід роботи з візуалізацією даних:</label>
             <select id="familiarity" name="familiarity" required>
                 <option value="" selected disabled></option>
-                <option value="not_familiar">Я ніколи не працював професійно з візуалізацією даних</option>
-                <option value="somewhat">Я дещо знайомий з візуалізацією даних</option>
-                <option value="very_familiar">Я сам створював візуалізації даних</option>
+                <option value="not_familiar">Я ніколи не працював(ла) професійно з візуалізацією даних</option>
+                <option value="somewhat">Я дещо знайомий(а) з візуалізацією даних</option>
+                <option value="very_familiar">Я самостійно створював(ла) візуалізації даних</option>
             </select>
 
             <label for="english-level">Рівень англійської мови:</label>
@@ -60,10 +60,10 @@
             <label for="ukrainian-level">Рівень української мови:</label>
             <select id="ukrainian-level" name="ukrainian-level" required>
                 <option value="" selected disabled></option>
+                <option value="native">Рідна мова</option>
                 <option value="beginner">Початковий</option>
                 <option value="intermediate">Середній</option>
                 <option value="advanced">Високий</option>
-                <option value="native">Рідна мова</option>
             </select>
 
             <label for="visualization-difficulty">Наскільки складно вам було сприймати зміст візуалізацій (графіків):</label>
@@ -82,12 +82,14 @@
                 <option value="difficult">Важко</option>
             </select>
 
-            <label for="kse-affiliation">Ви студент(ка), викладач(ка)/співробітник(ця) Київської школи економіки?</label>
+            <label for="kse-affiliation">Ви студент(ка), викладач(ка)/співробітник(ця) закладу вищої освіти?</label>
             <select id="kse-affiliation" name="kse-affiliation" required>
                 <option value="" selected disabled></option>
                 <option value="neither">Ні</option>
-                <option value="student">Студент(ка)</option>
-                <option value="teacher_employee">Викладач(ка)/Співробітник(ця)</option>
+                <option value="kse_student">Студент(ка) КШЕ</option>
+                <option value="other_student">Студент(ка) іншого ЗВО</option>
+                <option value="kse_teacher_employee">Викладач(ка)/Співробітник(ця) КШЕ</option>
+                <option value="other_teacher_employee">Викладач(ка)/Співробітник(ця) іншого ЗВО</option>
             </select>
 
             <label for="comments">Додаткові коментарі:</label>
