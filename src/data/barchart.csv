@@ -1,15 +1,15 @@
-Country,Speed,Country_UK
-Australia,79.24,Австралія
-China,78.61,Китай
-Hong Kong,43.88,Гонконг
-India,13.45,Індія
-Indonesia,16.16,Індонезія
-Japan,40.51,Японія
-Malaysia,23.74,Малайзія
-New Zealand,92.05,Нова Зеландія
-Singapore,68.32,Сінгапур
-South Korea,98.93,Південна Корея
-Sri Lanka,12.60,Шрі-Ланка
-Taiwan,51.67,Тайвань
-Thailand,31.38,Таїланд
-Vietnam,35.33,В'єтнам
+index,Country,Speed,Country_UK
+1,Australia,79.24,Австралія
+2,China,78.61,Китай
+3,Hong Kong,43.88,Гонконг
+4,India,13.45,Індія
+5,Indonesia,16.16,Індонезія
+6,Japan,40.51,Японія
+7,Malaysia,23.74,Малайзія
+8,New Zealand,92.05,Нова Зеландія
+9,Singapore,68.32,Сінгапур
+10,South Korea,98.93,Південна Корея
+11,Sri Lanka,12.60,Шрі-Ланка
+12,Taiwan,51.67,Тайвань
+13,Thailand,31.38,Таїланд
+14,Vietnam,35.33,В'єтнам

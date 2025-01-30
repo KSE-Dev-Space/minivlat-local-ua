@@ -22,6 +22,10 @@
         "labelAlign": "left",
         "title": null,
         "labelPadding": 10
+      },
+      "sort": {
+        "field": "index",
+        "order": "ascending"
       }
     },
     "y": {

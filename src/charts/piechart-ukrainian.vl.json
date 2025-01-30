@@ -15,17 +15,31 @@
     "width": 800, "height": 400,
     "data": {
       "values": [        
-        {"brand": "Samsung", "share": 17.6},
-        {"brand": "Xiaomi", "share": 15.5},
-        {"brand": "Apple", "share": 15.0},
-        {"brand": "Oppo", "share": 10.2},
-        {"brand": "Vivo", "share": 9.8},
-        {"brand": "Інші", "share": 31.9}
+        {"index": 1, "brand": "Samsung", "share": 17.6},
+        {"index": 2, "brand": "Xiaomi", "share": 15.5},
+        {"index": 3, "brand": "Apple", "share": 15.0},
+        {"index": 4, "brand": "Oppo", "share": 10.2},
+        {"index": 5, "brand": "Vivo", "share": 9.8},
+        {"index": 6, "brand": "Інші", "share": 31.9}
       ]
     },
     "encoding": {
-      "theta": {"field": "share", "type": "quantitative", "stack": true},
-      "color": {"field": "brand", "type": "nominal", "legend": null}
+      "theta": {
+        "field": "share",
+        "type": "quantitative",
+        "stack": true,
+        "sort": {"field": "index", "order": "ascending"}
+      },
+      "color": {
+        "field": "brand",
+        "type": "nominal",
+        "legend": null,
+        "sort": {"field": "index", "order": "ascending"}
+      },
+      "order": {
+        "field": "index",
+        "type": "quantitative"
+      }
     },
     "layer": [{
       "mark": {"type": "arc", "outerRadius": 120}
