@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>all-charts</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+    <div id="all-charts">
+        <!-- Containers for all charts will be dynamically added here -->
+    </div>
+    <script>
+        function createAllCharts() {
+            fetch('data/questions.json')
+                .then(response => response.json())
+                .then(data => {
+                    const versions = Object.keys(data.quizzes);
+                    const allChartsContainer = document.getElementById('all-charts');
+                    const chartTypes = new Set();
+
+                    // Collect all unique chart types
+                    versions.forEach(version => {
+                        data.quizzes[version].questions.forEach(question => {
+                            chartTypes.add(question.chart);
+                        });
+                    });
+
+                    // Iterate over each chart type and embed charts for all versions
+                    chartTypes.forEach(chartType => {
+                        versions.forEach(version => {
+                            const question = data.quizzes[version].questions.find(q => q.chart === chartType);
+                            if (question) {
+                                const chartContainer = document.createElement('div');
+                                chartContainer.id = `chart-${question.chart}-${version}`;
+                                allChartsContainer.appendChild(chartContainer);
+                                const chartFile = `charts/${question.chart}-${version}.vl.json`;
+                                vegaEmbed(`#chart-${question.chart}-${version}`, chartFile)
+                                    .catch(error => console.error('Error embedding chart:', error));
+                            }
+                        });
+                    });
+                })
+                .catch(error => console.error('Error loading questions:', error));
+        }
+
+        // Call the function to create all charts
+        createAllCharts();
+    </script>
+</body>
+</html>
