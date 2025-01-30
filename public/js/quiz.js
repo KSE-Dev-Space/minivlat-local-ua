@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const initialTimeLeft = 25000; // 25 seconds in milliseconds
     let timeLeft = initialTimeLeft;
     let timer;
-    let startTime = new Date().toISOString();
+    let startTime = new Date().getTime(); // Change to getTime for milliseconds precision
 
     // Set timer label based on version
     if (version === 'ukrainian') {
@@ -102,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.option-button').forEach(button => {
             button.addEventListener('click', () => submitAnswer(button.dataset.value));
         });
+
+        startTime = new Date().getTime(); // Reset start time for each question
     }
 
     function stopTimer() {
@@ -125,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (timeLeft <= 0) {
                 stopTimer();
                 alert("Time's up! Moving to the next question.");
-                submitAnswer(true);
+                submitAnswer('timeout'); // Pass 'timeout' as the selected answer
             }
         }, 100);
     }
@@ -165,6 +167,9 @@ document.addEventListener('DOMContentLoaded', function () {
             score++;
         }
 
+        const endTime = new Date().getTime(); // Capture end time
+        const timeSpent = endTime - startTime; // Calculate time spent in milliseconds
+
         // Store the question result
         quizResults.push({
             question: currentQuestion.question,
@@ -174,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
             questionIndex: currentQuestionIndex,
             ordinalNumber: currentQuestionIndex + 1, // Store the ordinal number of the question
             timestamp: new Date().toISOString(),
-            timeSpent: 25000 - timeLeft, // Time spent in milliseconds
+            timeSpent: timeSpent, // Use the calculated time spent
             chartType: currentQuestion.chart,
             chartTypeUk: currentQuestion.chart_uk // Include chart_uk type
         });
