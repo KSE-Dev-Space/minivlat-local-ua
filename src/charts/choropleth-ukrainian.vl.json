@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "height": 500,
-  "width": 800,
+  "width": 600,
   "title": "Кількість шлюбів в першому півріччі 2024 р.",
   "config": {
     "padding": 0,
