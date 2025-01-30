@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const WEBHOOK_URL = process.env.WEBHOOK_URL;
+const WEBHOOK_URL = "https://n8n.olehomelchenko.com/webhook/kse-research";
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,6 +23,7 @@ app.post('/api/responses', (req, res) => {
 
     // Redirect payload to webhook
     if (WEBHOOK_URL) {
+        console.log("sending to ", WEBHOOK_URL);
         axios.post(WEBHOOK_URL, JSON.stringify(response), {
             headers: {
                 'Content-Type': 'application/json'
