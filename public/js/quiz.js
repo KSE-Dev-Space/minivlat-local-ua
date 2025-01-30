@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let timeLeft = initialTimeLeft;
     let timer;
     let startTime = new Date().getTime(); // Change to getTime for milliseconds precision
+    const progressBar = document.getElementById('progress-bar');
 
     // Set timer label based on version
     if (version === 'ukrainian') {
@@ -104,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         startTime = new Date().getTime(); // Reset start time for each question
+        updateProgressBar();
     }
 
     function stopTimer() {
@@ -188,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
         storeQuizProgress();
 
         currentQuestionIndex++;
+        updateProgressBar();
         // Reset timer state before showing next question
         timeLeft = initialTimeLeft; // Reset to initial time
         displayQuestion();
@@ -202,5 +205,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Redirect to the questionnaire page
         window.location.href = 'questionnaire.html';
+    }
+
+    function updateProgressBar() {
+        const progress = (currentQuestionIndex / questions.length) * 100;
+        progressBar.style.width = `${progress}%`;
     }
 });
