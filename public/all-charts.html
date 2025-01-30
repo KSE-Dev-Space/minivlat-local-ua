@@ -9,6 +9,20 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        /* Ensure charts are resized to 100% width */
+        .chart-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        /* Optimize for mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="all-charts">
@@ -37,9 +51,39 @@
                             if (question) {
                                 const chartContainer = document.createElement('div');
                                 chartContainer.id = `chart-${question.chart}-${version}`;
+                                chartContainer.className = 'chart-container';
                                 allChartsContainer.appendChild(chartContainer);
                                 const chartFile = `charts/${question.chart}-${version}.vl.json`;
-                                vegaEmbed(`#chart-${question.chart}-${version}`, chartFile)
+
+                                // Embed the Vega-Lite chart with custom options
+                                const embedOptions = {
+                                    downloadFileName: `${question.chart}-${version}`,
+                                    actions: {
+                                        export: {
+                                            svg: true,
+                                            png: true
+                                        },
+                                        source: false,
+                                        compiled: false,
+                                        editor: false
+                                    },
+                                    tooltip: false,  // Disable tooltips
+                                };
+
+                                if (version === 'ukrainian') {
+                                    embedOptions.timeFormatLocale = {
+                                        dateTime: "%A, %e %B %Y р. %X",
+                                        date: "%d.%m.%Y",
+                                        time: "%H:%M:%S",
+                                        periods: ["", ""],
+                                        days: ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"],
+                                        shortDays: ["нд", "пн", "вт", "ср", "чт", "пт", "сб"],
+                                        months: ["січень", "лютий", "березень", "квітень", "травень", "червень", "липень", "серпень", "вересень", "жовтень", "листопад", "грудень"],
+                                        shortMonths: ["січ", "лют", "бер", "кві", "тра", "чер", "лип", "сер", "вер", "жов", "лис", "гру"]
+                                    };
+                                }
+
+                                vegaEmbed(`#chart-${question.chart}-${version}`, chartFile, embedOptions)
                                     .catch(error => console.error('Error embedding chart:', error));
                             }
                         });
